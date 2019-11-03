@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import {connect} from 'react-redux'
 
 class Login_form extends Component {
+    
     state = {
         username: '',
         password: ''
@@ -13,9 +15,11 @@ class Login_form extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
+        // const submitAction = {type: 'CHECK_SUBMIT', this.state }
         console.log(this.state);
     }
     render() {
+        console.log(this.props)
         return (
             <div onSubmit={this.handleSubmit} className="formcon" id="logincon">
                 <form id="form_login" className="border-top2 row main_color_three" action="model/ws.php"
@@ -42,4 +46,10 @@ class Login_form extends Component {
         );
     }
 }
-export default Login_form;
+const mapStateToProps = (state) => {
+    return {
+        auth: state.auth.user
+    }
+}
+
+export default connect(mapStateToProps)(Login_form);
