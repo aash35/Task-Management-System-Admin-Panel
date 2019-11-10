@@ -2,6 +2,8 @@ html {
   min-height: 100%;
 }
 body {
+  margin:0 auto !important;
+  width: 90%;
   min-height: 100%;
   background-color: #3f51b5 ;
   margin: 0;
@@ -16,8 +18,22 @@ body {
   padding: 20px;
   margin-top: 60px;
 }
+img{
+  width:auto !important;
+  padding-top: 2.5px;
+  border-radius: 0% !important;
+  height: 55px !important;
+}
+.container{
+  width:95%;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+h6 {
+  font-size: 20px !important;
+  padding:0px !important;
+  height:100%;
 }

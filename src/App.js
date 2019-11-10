@@ -1,24 +1,31 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route } from 'react-router-dom'
-import Login_form from './components/auth/login_form';
-import displayer from './components/admin-panel/displayer';
-import NavBar from './components/nav/nav_bar';
+import './index.css';
+import LoginForm from './components/auth/LoginForm';
+import MainDisplayer from './components/MainDisplayer';
+import { connect } from 'react-redux'
+
 
 
 class App extends Component {
   render() {
-    return (
-      <BrowserRouter>
-        <div>
-          <NavBar/>
-          <Route exact path='/' component={Login_form} />
-          <Route path='/admin_panel' component={displayer} />
-          <Route path='/:post_id' component={displayer} />       
-        </div>
-      </BrowserRouter>
-    );
+    console.log(this.props)
+    if (this.props.status[0].login_state.length > 0) {
+      return (
+        <MainDisplayer/>
+      );
+    } else {
+      return (
+        <LoginForm />
+      );
+    }
   }
 }
 
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    status: state.auth.login_state,
+    users: state.users.users
+  }
+}
+export default connect(mapStateToProps)(App);
