@@ -27,6 +27,13 @@ img{
 .container{
   width:95%;
 }
+.displayers {
+  text-align: center;
+  padding:15px 5px 15px 5px;
+  background: #e3f2fd ;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -36,4 +43,61 @@ h6 {
   font-size: 20px !important;
   padding:0px !important;
   height:100%;
+  margin:0px;
+  font-weight: bold;
+}
+.text_left{
+  text-align: left;
+}
+.select_button {
+  background: #c5cae9;
+  color: black;
+  width: 100%;
+}
+.divide_vert{
+  border-left: 0.8px solid black;
+  margin: 5px;
+  display: inline;
+}
+.padding_little{
+  padding: 2px !important;
+  display: block;
+}
+.padding_medium{
+  padding: 5px !important;
+}
+h5{
+  margin: 0px;
+  margin-top: 5px;
+}
+.padding_top{
+  padding-top: 5px;
+}
+.margin_little{
+  margin: 2px !important;
+  width: 100%;
+}
+.content_width{
+  margin-right: 0px !important;
+  display: inline;
+}
+.create_form{
+  background-color: #a5d6a7;
+}
+.margin_medium {
+  margin: 4px;
+}
+.coll_body_colour{
+  background-color: #FFF !important;
+}
+.coll_header_colour{
+  background-color: #eeeeee !important;
+}
+.delete_button{
+  background-color: #f44336 ;
+  font-size: 10px;
+  font-weight: bold;
+}
+.delete_button:hover{
+  background-color: #f44336;
 }

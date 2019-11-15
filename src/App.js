@@ -25,7 +25,8 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     status: state.auth.login_state,
-    users: state.users.users
+    users: state.users.users,
+    job_types: state.job_type.job_types
   }
 }
 export default connect(mapStateToProps)(App);

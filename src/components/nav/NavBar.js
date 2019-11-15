@@ -7,7 +7,7 @@ const NavBar = () => {
         <nav className="nav-wrapper grey darken-3" >
             <div className="container">
                 <div className="row">
-                    <img className="left responsive-img" src={require("./nav_img.png")}></img>
+                    <img className="left responsive-img" alt="logo" src={require("./nav_img.png")}></img>
                     <ul className="right">
                         <li><NavLink to="/">Users</NavLink></li>
                         <li><NavLink to='/job_type'>Job Type</NavLink></li>

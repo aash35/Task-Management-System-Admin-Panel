@@ -1,9 +1,6 @@
 const initState = {
-    user: [
-        { id: '1', username: 'super_admin', password: 'super_admin' }
-    ],
     login_state: [
-        { login_state: "asdsad" }
+        { login_state: "asdasd" }
     ]
 }
 

@@ -1,52 +1,11 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux'
-import M from 'materialize-css'
-import CreateNewForm from './CreateNewForm'
 import UpdateForm from './UpdateForm'
-import { UsersActionsDelete } from "../../actions/UsersActions"
 
-class UsersDisplayer extends Component {
-    componentDidUpdate() {
-        M.AutoInit();
-    };
-    handleClick = (e) =>{
-
-        var that = this;
-        const {value} = e.target;
-        var url = "https://localhost:443/api/ws.php";
-        var formData = new FormData();
-        formData.append('admin', 'delete_users');
-        formData.append('admin_delete_id', value);
-        formData.append('admin_user', this.props.status[0].login_state);
-        fetch(url, {
-            method: "POST",
-            body: formData,
-            // credentials: 'include'
-        })
-            .then(function (response) {
-                if (response.status !== 200) {
-                    console.log(
-                        "Looks like there was a problem. Status Code: " + response.status
-                    );
-                    return;
-                }
-                response.json().then(function (data) {
-                    if (!data.error) {
-                        that.props.UsersActionsDelete(value);
-                        M.toast({ html: "User Deleted", displayLength: 10000 });
-                    } else {
-                        M.toast({ html: "Error", displayLength: 10000 });
-                        // document.getElementById("toast-container").addEventListener("click", toasthide)
-                    }
-                });
-            })
-            .catch(function (err) {
-                console.log("Fetch Error :-S", err);
-            });
-    }
+class UsersList extends Component {
     render() {
         const { users } = this.props
-        const usersList = users.length ? (
+        users.length ? (
             users.map(user => {
                 return (
                     <ul className="collapsible margin_medium" key={user.users_id}>
@@ -71,7 +30,7 @@ class UsersDisplayer extends Component {
                             <div className="collapsible-body coll_body_colour padding_top">
                                 <div className="row margin_medium">
                                     <button className="right delete_button waves-effect btn modal-trigger" data-target={"model" + user.users_id}>Delete User</button>
-                                    <div  id={"model" + user.users_id} className="modal">
+                                    <div id={"model" + user.users_id} className="modal">
                                         <div className="modal-content padding_medium">
                                             <h5>Delete User: {user.users_id}</h5>
                                         </div>
@@ -82,38 +41,22 @@ class UsersDisplayer extends Component {
                                         </div>
                                     </div>
                                 </div>
-                                <UpdateForm updatetype="User" user={user} />
+                                <UpdateForm updatetype="User" />
                             </div>
                         </li>
                     </ul>
                 )
+
             })
         ) : (
                 <div className='center'>No Posts Yet</div>
             )
-            
-        return (
-            <div className="displayers">
-                <div className="text_left">
-                    <h6>Users:</h6>
-                </div>
-                <CreateNewForm formtype="User"/>
-                {usersList}
-            </div>
-        );
     }
 }
-
 const mapStateToProps = (state) => {
     return {
-        users: state.users.users,
-        status: state.auth.login_state
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        UsersActionsDelete: (status) => { dispatch(UsersActionsDelete(status)) }
+        users: state.users.users
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersDisplayer);
+export default connect(mapStateToProps)(UsersList);

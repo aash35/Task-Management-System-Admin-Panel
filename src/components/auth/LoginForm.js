@@ -3,6 +3,7 @@ import { UpdateStatus } from "../../actions/StatusActions"
 import { connect } from 'react-redux'
 import M from 'materialize-css'
 
+
 class LoginForm extends Component {
 
     state = {
@@ -29,7 +30,8 @@ class LoginForm extends Component {
         formData.append('admin', 'login');
         formData.append('username', this.state.username);
         formData.append('password', this.state.password);
-        fetch(url, {
+        fetch(url, {            
+            // credentials: 'include',
             method: "POST",
             body: formData
         }) 
@@ -41,6 +43,7 @@ class LoginForm extends Component {
                     return;
                 }
                 response.json().then(function (data) {
+                    // console.log(data)
                     document.getElementById("form_login").reset();
                     if (!data.error) {
                         that.props.UpdateStatus(data);
@@ -55,20 +58,6 @@ class LoginForm extends Component {
             });
 
 
-        // axios.post("http://localhost:443/api/ws.php", {
-        //     admin: "test",
-        //     username: this.state.username,
-        //     password: this.state.password
-        // })
-        //     .then(res => {
-        //         console.log(res);
-        //         if(res.res === "session_set")
-        //         // this.props.UpdateStatus(this.state);
-        //         console.log(res.data);
-        //         // const persons = res.data;
-        //         // this.setState({ persons });
-        //         // console.log(this.state)
-        //     })
     }
 
     render() {

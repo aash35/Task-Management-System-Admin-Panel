@@ -1,6 +1,6 @@
-export const UsersActions = (status) => {
+export const UsersActionsSelect = (status) => {
     return {
-        type:"UPDATE_USERS",
+        type:"SELECT_USERS",
         status
     }
 
@@ -11,5 +11,30 @@ export const UsersActions = (status) => {
     //         status
     //     });
     // }
+
+};
+
+export const UsersActionsDelete = (status) => {
+    return {
+        type: "DELETE_USER",
+        status
+    }
+
+
+};
+export const UsersActionsAdd = (status) => {
+    return {
+        type: "ADD_USER",
+        status
+    }
+
+
+};
+export const UsersActionsUpdate = (status) => {
+    return {
+        type: "UPDATE_USER",
+        status
+    }
+
 
 };
