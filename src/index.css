@@ -73,6 +73,11 @@ h5{
 .padding_top{
   padding-top: 5px;
 }
+.error_message{
+  background: #ef5350;
+  font-weight: bold;
+  border-radius: 2px;
+}
 .margin_little{
   margin: 2px !important;
   width: 100%;
