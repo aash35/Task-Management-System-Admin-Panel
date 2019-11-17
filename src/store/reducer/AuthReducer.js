@@ -1,6 +1,6 @@
 const initState = {
     login_state: [
-        { login_state: "asdasd" }
+        { login_state: "" }
     ]
 }
 

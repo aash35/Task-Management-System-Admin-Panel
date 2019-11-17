@@ -89,7 +89,7 @@ class UsersDisplayer extends Component {
                 )
             })
         ) : (
-                <div className='center'>No Posts Yet</div>
+                <div className='center'>No Users Yet</div>
             )
             
         return (

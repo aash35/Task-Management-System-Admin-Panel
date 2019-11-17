@@ -148,7 +148,7 @@ class UpdateForm extends Component {
                     action="model/ws.php" method="POST">
                     <h5 className="main_text">Update {updatetype}</h5>
                     <input type="hidden" name="error" />
-                    <input name="update_id" id="update_id" hidden  defaultValue={user.users_id} />
+                    <input name="update_id" id="update_id" hidden readOnly defaultValue={user.users_id} />
                     <div className="row input-centre">
                         <div className="input-field main_color_four col s12">
                             <input type="text" className="input-boxes2" name="update_username" id="update_username"

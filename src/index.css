@@ -78,6 +78,9 @@ h5{
   font-weight: bold;
   border-radius: 2px;
 }
+.description_top{
+  margin: 10px 2px 2px 2px !important;
+}
 .margin_little{
   margin: 2px !important;
   width: 100%;

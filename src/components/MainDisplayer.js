@@ -32,7 +32,6 @@ class MainDisplayer extends Component {
                     return;
                 }
                 response.json().then(function (data) {
-                    console.log(data)
                     if (!data.error) {
                         that.props.UsersActionsSelect(data);
                     } else {
@@ -62,7 +61,6 @@ class MainDisplayer extends Component {
                 }
                 response.json().then(function (data) {
                     if (!data.error) {
-                        console.log(that.props)
                         that.props.JobTypeActionsSelect(data);
                     } else {
                         M.toast({ html: "Error", displayLength: 10000 });
@@ -77,7 +75,7 @@ class MainDisplayer extends Component {
     }
     render() {
         return (
-            <BrowserRouter>
+            <BrowserRouter basename='/ash_452759541_proj3'>
                 <div>
                     <NavBar />
                     <Route exact path='/' component={UsersDispalyer} />
