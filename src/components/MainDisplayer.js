@@ -1,19 +1,24 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { UsersActionsSelect } from "../actions/UsersActions"
 import { JobTypeActionsSelect } from "../actions/JobTypeActions"
 import NavBar from './nav/NavBar';
 import UsersDispalyer from './Data/UsersDispalyer'
 import JobTypeDisplayer from './Data/JobTypeDisplayer'
-
-
 import M from 'materialize-css'
 
 
 class MainDisplayer extends Component {
+    componentDidLoad() {
+        M.AutoInit();
+    };  
+    componentDidUpdate() {
+        M.AutoInit();
+    };
 
     componentDidMount() {
+        M.AutoInit();
         var that = this;
         var url = "https://localhost:443/api/ws.php";
         var formData = new FormData();
@@ -22,7 +27,7 @@ class MainDisplayer extends Component {
         fetch(url, {
             method: "POST",
             body: formData,
-            // credentials: 'include'
+            credentials: 'include'
         })
             .then(function (response) {
                 if (response.status !== 200) {
@@ -46,11 +51,10 @@ class MainDisplayer extends Component {
         var formData2 = new FormData();
         formData2.append('admin', 'selecting_job_types');
         formData2.append('admin_user', this.props.status[0].login_state);
-        console.log(that)
         fetch(url, {
             method: "POST",
             body: formData2,
-            // credentials: 'include'
+            credentials: 'include'
         })
             .then(function (response) {
                 if (response.status !== 200) {
@@ -75,11 +79,13 @@ class MainDisplayer extends Component {
     }
     render() {
         return (
-            <BrowserRouter basename='/ash_452759541_proj3'>
+            <BrowserRouter basename='ash_452759541_proj3'>
                 <div>
                     <NavBar />
-                    <Route exact path='/' component={UsersDispalyer} />
-                    <Route path='/job_type' component={JobTypeDisplayer} />
+                    <Switch>
+                        <Route exact path='/' component={UsersDispalyer} />
+                        <Route path='/job_type' component={JobTypeDisplayer} />
+                    </Switch>
                 </div>
             </BrowserRouter>
         );

@@ -31,7 +31,7 @@ class LoginForm extends Component {
         formData.append('username', this.state.username);
         formData.append('password', this.state.password);
         fetch(url, {            
-            // credentials: 'include',
+            credentials: 'include',
             method: "POST",
             body: formData
         }) 

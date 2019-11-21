@@ -56,7 +56,7 @@ class CreateNewFormJobType extends Component {
         fetch(url, {
             method: "POST",
             body: formData,
-            // credentials: 'include'
+            credentials: 'include'
         })
             .then(function (response) {
                 if (response.status !== 200) {

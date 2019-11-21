@@ -6,12 +6,18 @@ import UpdateFormJobType from './UpdateFormJobType'
 import { JobTypeActionsDelete } from "../../actions/JobTypeActions"
 
 class JobTypeDisplayer extends Component {
+    componentDidLoad() {
+        M.AutoInit();
+    };
+    componentDidMount() {
+        M.AutoInit();
+    };
     componentDidUpdate() {
         M.AutoInit();
     };
-    handleClick = (e) =>{
+    handleClick = (e) => {
         var that = this;
-        const {value} = e.target;
+        const { value } = e.target;
         var url = "https://localhost:443/api/ws.php";
         var formData = new FormData();
         formData.append('admin', 'delete_job_type');
@@ -20,7 +26,7 @@ class JobTypeDisplayer extends Component {
         fetch(url, {
             method: "POST",
             body: formData,
-            // credentials: 'include'
+            credentials: 'include'
         })
             .then(function (response) {
                 if (response.status !== 200) {

@@ -6,9 +6,16 @@ import UpdateForm from './UpdateForm'
 import { UsersActionsDelete } from "../../actions/UsersActions"
 
 class UsersDisplayer extends Component {
+    componentDidLoad() {
+        M.AutoInit();
+    };
+    componentDidMount() {
+        M.AutoInit();
+    };  
     componentDidUpdate() {
         M.AutoInit();
     };
+    
     handleClick = (e) =>{
 
         var that = this;
@@ -21,7 +28,7 @@ class UsersDisplayer extends Component {
         fetch(url, {
             method: "POST",
             body: formData,
-            // credentials: 'include'
+            credentials: 'include'
         })
             .then(function (response) {
                 if (response.status !== 200) {

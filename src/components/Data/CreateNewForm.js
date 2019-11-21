@@ -85,7 +85,7 @@ class CreateNewForm extends Component {
         fetch(url, {
             method: "POST",
             body: formData,
-            // credentials: 'include'
+            credentials: 'include'
         })
             .then(function (response) {
                 if (response.status !== 200) {
@@ -187,8 +187,8 @@ class CreateNewForm extends Component {
                                     <div className="input-field main_color_four col s12">
                                         <select name="access_rights_user" className="browser-default" id="access_rights_user"
                                             onChange={this.validation("select")} required>
-                                                <option value="1">Employee: 1</option>
-                                                <option value="2">Manager: 2</option>
+                                                <option value="1">Manager: 1</option>
+                                                <option value="2">Employee: 2</option>
                                                 <option value="3">Admin: 3</option>
                                         </select>
                                         <div className="error_message"></div>

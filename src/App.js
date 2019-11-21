@@ -3,14 +3,24 @@ import './index.css';
 import LoginForm from './components/auth/LoginForm';
 import MainDisplayer from './components/MainDisplayer';
 import { connect } from 'react-redux'
+import M from 'materialize-css'
 
 
 
 class App extends Component {
+  componentDidLoad() {
+    M.AutoInit();
+  };
+  componentDidMount() {
+    M.AutoInit();
+  };
+  componentDidUpdate() {
+    M.AutoInit();
+  };
   render() {
     if (this.props.status[0].login_state.length > 0) {
       return (
-        <MainDisplayer/>
+        <MainDisplayer />
       );
     } else {
       return (
