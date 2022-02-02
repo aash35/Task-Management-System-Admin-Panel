@@ -1,8 +1,17 @@
-************************   Diploma of Web Development - Major Project Part 2   **********************************
+# Diploma of Web Development - Major Project Part 2
 
-This project was created with REACT
+This project was created as a Web Application for the second part of the Diplomas major project. The purpose of this project was to create a admin panel for the management of the first system without the need to directly modify the database. Allows the resetting password, creation of management and staff accounts, creation of different roles etc. 
 
-## Available Scripts
+### Languages/Frameworks
+* **HTML** and **CSS** - Structure and Styling 
+* **Typescript/React** - Frontend interface
+* **React Redux** - Statefulness
+* **React Router** - Client-side routing
+* **PHP** - Backend API (same API as Part 1)
+* **MySQL** - Database Management System (same API as Part 1)
+
+
+## React Scripts
 
 In the project directory, you can run:
 
